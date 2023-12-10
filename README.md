@@ -1,10 +1,12 @@
-## Next.js `use python`
+# Next.js `use python`
 
 Use python right inside of your Next.js project. 
 Just like `use server` (kinda).
 
+![use-python](https://github.com/dzc0d3r/nextjs-use-python/assets/49822541/64fec7c0-5939-404e-b2ca-2f59e0ed0f4e)
 
 
+## How to use ? 
 You can use it in React Server Components just like this: 
 
 ```jsx
@@ -41,6 +43,8 @@ import {pythonHelloWorld} from "../actions";
 ```
 
 
+## How to run it ?
+
 Yes this actually works. Trust me I wish it wouldn't too. 
 
 ## Build 
@@ -54,8 +58,6 @@ npm run start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-If you want to try out the Database Example, you can use the docker-compose file provided in the repository.
-after `docker-compose up -d` you need to create the database and table you want to insert into manually.
 
 ## Roadmap (Things that should be fixed but realistically it will never happen)
 
