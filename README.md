@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Next.js `use python`
 
-## Getting Started
+Use python right inside of your Next.js project. 
+Just like `use server` (kinda).
 
-First, run the development server:
+
+
+You can use it in React Server Components just like this: 
+
+```jsx
+return (
+    <button
+          className="min-w-[10rem] rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          formAction={async () => { 
+            'use python'
+            import this
+            import codecs
+            with open('./public/readme.txt', 'w') as f:
+                f.write(codecs.encode(this.s, 'rot13'))
+            }}>
+          Save to File
+    </button>
+)
+```
+
+And if you want to it can even work with React Client Components
+
+```javascript
+// actions.js
+'use server'
+
+export async function pythonHelloWorld () {
+    'use python'
+    import this
+}
+```
+
+```javascript
+// page.tsx
+import {pythonHelloWorld} from "../actions";
+```
+
+
+Yes this actually works. Trust me I wish it wouldn't too. 
+
+## Build 
+
+You can build the implementation by
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+If you want to try out the Database Example, you can use the docker-compose file provided in the repository.
+after `docker-compose up -d` you need to create the database and table you want to insert into manually.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Roadmap (Things that should be fixed but realistically it will never happen)
 
-## Learn More
+- [ ] There is a probably a way to fix that nasty preprocess step with [SWC Plugins]( https://swc.rs/docs/plugin/ecmascript/getting-started) which are still in Beta with Next.js and also I think they will switch builder anyways soon so what's the point really? But hey if anyone wants to do it feel free.
+- [ ] I guess there is some hacky way to make props binding possible.
 
-To learn more about Next.js, take a look at the following resources:
+## Credits
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Heavily inspired by:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* https://github.com/bufferhead-code/nextjs-use-php
 
-## Deploy on Vercel
+Check out the original implementations by elnardu for C and Rust:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* https://github.com/elnardu/react-use-c
+* https://github.com/elnardu/react-use-rust
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Disclaimer
+
+*I hope I don't have to say this but: If you even in the slightest consider to use this in any application at all you are an absolute madperson and and should be locked out of the internet for the rest of your life, I hope you find some other fun activity, maybe gardening or woodwork, One more thing good luck with correctly indenting your python code, don't forget to disable format on save in your editor.*
+<!-- ## Self-Promo
+
+If you enjoyed this project and want to see more silly web development projects, you can follow me on [Twitter](https://twitter.com/bufferhead_), [Bluesky](https://bsky.app/profile/bufferhead.bsky.social) and [Youtube](https://www.youtube.com/@bufferhead_). --> 
